@@ -16,6 +16,16 @@ Board.factory('BoardData', [function () {
         return 'king_of_clubs2.png';
     };
 
+    BoardData.getCards = function(player) {
+        if (player === 'Héro') {
+            return ['2_of_clubs.png', '5_of_hearts.png'];
+        }
+        else {
+            return ['back.png', 'back.png'];
+        }
+
+    }
+
     return BoardData;
 
 }]);
