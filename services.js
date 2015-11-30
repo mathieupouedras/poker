@@ -1,10 +1,13 @@
-var Board = angular.module('Board', [])
-Board.factory('BoardData', [function () {
 
-    var BoardData = {};
+'use strict'; 
+
+var Board = angular.module('Board');   
+Board.factory('BoardData', [function () {   
+
+    var BoardData = {};      
 
     BoardData.getFlop = function () {
-        flop = ['2_of_clubs.png', '5_of_hearts.png', '9_of_clubs.png'];
+        var flop = ['2_of_clubs.png', '5_of_hearts.png', '9_of_clubs.png'];
         return flop;
     };
 
@@ -24,7 +27,7 @@ Board.factory('BoardData', [function () {
             return ['back.png', 'back.png'];
         }
 
-    }
+    };
 
     return BoardData;
 

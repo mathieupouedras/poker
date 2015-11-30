@@ -1,5 +1,8 @@
-var app = angular.module('pokerReplayer', ['Board']);
+'use strict';
 
+var fabric = require('fabric');
+
+var app = angular.module('pokerReplayer', ['Board']);
 app.controller('ReplayerController', function(BoardData) {
     var canvas = new fabric.Canvas('board');
 
@@ -31,21 +34,21 @@ app.controller('ReplayerController', function(BoardData) {
             image.scale(scale);
             canvas.add(image.set(position));
         });
-    }
+    };
 
     var drawPlayer = function(name, position) {
         var player = new fabric.Text(name, position);
         canvas.add(player);
 
-        hand = BoardData.getCards(name);
-        cardPosition = {};
+        var hand = BoardData.getCards(name);
+        var cardPosition = {};
         cardPosition.left = position.left + 80;
         cardPosition.top = position.top;
 
         console.log(cardPosition);
         drawImage('images/' + hand[0], 0.1, cardPosition);
 
-        cardPosition2 = {};
+        var cardPosition2 = {};
         cardPosition2.left = cardPosition.left + 60;
         cardPosition2.top = cardPosition.top;
         drawImage('images/' + hand[1], 0.1, cardPosition2);
