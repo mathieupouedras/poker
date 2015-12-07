@@ -1,9 +1,12 @@
 'use strict';
 
-var fabric = require('fabric');
-
 var app = angular.module('pokerReplayer', ['Board']);
-app.controller('ReplayerController', function(BoardData) {
+app.controller('ReplayerController', function($scope,BoardData) {
+
+     var wsUri = 'ws://localhost:8001';
+var ws = new WebSocket(wsUri);
+$scope.message='';
+
     var canvas = new fabric.Canvas('board');
 
     canvas.add(
@@ -27,6 +30,12 @@ app.controller('ReplayerController', function(BoardData) {
 
     this.drawRiver = function() {
         drawImage('images/' + BoardData.getRiver(), 0.1, {left: 240 + 100, top: 150});
+    };
+
+    this.sendMessage = function($event) {
+        if (!($event.which == 13)) return;
+        if ($scope.message.length == 0) return;
+            doSend($scope.message);
     };
 
     var drawImage = function(url, scale, position) {
@@ -53,6 +62,29 @@ app.controller('ReplayerController', function(BoardData) {
         cardPosition2.top = cardPosition.top;
         drawImage('images/' + hand[1], 0.1, cardPosition2);
     };
+
+      ws.onOpen = function () {
+   
+    
+  };
+
+  ws.onmessage = function(message) {
+        listener(message.data);
+  };
+
+  function listener(data) {
+      var messageObj = data;
+      console.log("Received data from websocket: ", messageObj);
+      $scope.message = messageObj;
+      console.log($scope.message);
+      
+   }
+
+
+
+  var doSend = function (message) {   
+    ws.send($scope.message);
+  }
 
     drawPlayer('François', {left: 0, top: 0,  fontSize: 20});
     drawPlayer('Héro', {left: 400, top: 0,  fontSize: 20});

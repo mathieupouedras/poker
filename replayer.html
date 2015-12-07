@@ -10,16 +10,23 @@
         <header>
             <h1 class="text-center">Social Poker Hand Replayer</h1>
         </header>
-
         <div>
+        <div style="float : left">
             <canvas id="board" width="600" height="400"></canvas>
             <button type="button" ng-click="replayer.drawFlop()">Flop</button>
             <button type="button" ng-click="replayer.drawTurn()">Turn</button>
             <button type="button" ng-click="replayer.drawRiver()">And The river is...</button>
+             <button type="button" ng-click="replayer.ws()">ws</button>
         </div>
+        <div style="float : left">
+                    <h1>Le super Chat temps réel !</h1>
+            <input type="text" class="form-control" placeholder="Send Message" ng-model="message" ng-keypress="replayer.sendMessage($event)" autofocus>
+        </div>
+    </div>
     </body>
 </html>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
 <script type="text/javascript" src="services.js"></script>
 <script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="ws.js"></script>

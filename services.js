@@ -1,7 +1,7 @@
 
 'use strict'; 
 
-var Board = angular.module('Board');   
+var Board = angular.module('Board',[]);  
 Board.factory('BoardData', [function () {   
 
     var BoardData = {};      
