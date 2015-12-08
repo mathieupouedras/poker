@@ -1,10 +1,10 @@
 
-'use strict'; 
+'use strict';
 
-var Board = angular.module('Board');   
-Board.factory('BoardData', [function () {   
+var Board = angular.module('Board', []);
+Board.factory('BoardData', [function () {
 
-    var BoardData = {};      
+    var BoardData = {};
 
     BoardData.getFlop = function () {
         var flop = ['2_of_clubs.png', '5_of_hearts.png', '9_of_clubs.png'];

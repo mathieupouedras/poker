@@ -1,7 +1,5 @@
 'use strict';
 
-var fabric = require('fabric');
-
 var app = angular.module('pokerReplayer', ['Board']);
 app.controller('ReplayerController', function(BoardData) {
     var canvas = new fabric.Canvas('board');
