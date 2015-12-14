@@ -1,35 +1,28 @@
 'use strict';  
 
-var Ws = angular.module('Ws',[]);  
-Ws.service('Ws', [function ($scope) { 
+
+app.service('socket', ['$q',function ($q) { 
  
  
  var wsUri = 'ws://localhost:8001';
+
 var ws = new WebSocket(wsUri);
 
 
 
-  ws.onOpen = function () {
-   
-    
-  };
-
-  ws.onmessage = function(message) {
-        listener(message.data);
-  };
-
-  function listener(data) {
-      var messageObj = data;
-      console.log("Received data from websocket: ", messageObj);
-      $scope.message = messageObj;
+  this.callback =function () {
+    var defer = $q.defer();
+     ws.onmessage = function(message) {
+        defer.resolve(message.data);
+    };    
+    return defer.promise;  
       
-   }
-
+   };
 
 
   this.doSend = function (message) {   
     ws.send(message);
-  }
+  };
 }]);
 
  
