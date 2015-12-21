@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Social Poker Hand Replayer</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+        <link href="/css/app.css" rel="stylesheet">
     </head>
 
     <body ng-controller="ReplayerController as replayer">
@@ -13,13 +14,12 @@
 
         <div>
             <canvas id="board" width="600" height="400"></canvas>
-            <button type="button" ng-click="replayer.drawFlop()">Flop</button>
+            <button type="button" ng-click="replayer.drawFlop()">aaaa</button>
             <button type="button" ng-click="replayer.drawTurn()">Turn</button>
             <button type="button" ng-click="replayer.drawRiver()">And The river is...</button>
         </div>
     </body>
 </html>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
-<script type="text/javascript" src="services.js"></script>
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="js/vendor.js"></script>
+<script type="text/javascript" src="js/services.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
