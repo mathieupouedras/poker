@@ -1,0 +1,9 @@
+{
+  "name": "your-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "fabric": "~1.5.0"
+  },
+  "overrides": {}
+}
